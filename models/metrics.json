@@ -1,0 +1,28 @@
+{
+  "model_version": "logistic_regression-v1",
+  "selected_model": "logistic_regression",
+  "cv_roc_auc": {
+    "baseline_most_frequent": 0.5,
+    "logistic_regression": 0.8459495012172488,
+    "random_forest": 0.8369183478504298
+  },
+  "test_roc_auc": 0.8412978893797307,
+  "test_pr_auc": 0.6325780038908728,
+  "test_accuracy": 0.7381121362668559,
+  "churn_precision": 0.504302925989673,
+  "churn_recall": 0.7834224598930482,
+  "churn_f1": 0.6136125654450262,
+  "threshold": 0.5,
+  "confusion_matrix": [
+    [
+      747,
+      288
+    ],
+    [
+      81,
+      293
+    ]
+  ],
+  "train_rows": 5634,
+  "test_rows": 1409
+}

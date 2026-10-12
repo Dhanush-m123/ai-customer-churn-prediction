@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Churn risk check</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Churn risk check</h1>
+    <p>Enter one customer's account details to get a model estimate of how likely they are to leave. It supports a retention team's judgement; it doesn't replace it.</p>
+  </header>
+
+  <main class="layout">
+    <form id="form" class="panel" novalidate>
+      <div id="fields" class="grid"></div>
+      <button id="submit" type="submit">Estimate churn risk</button>
+    </form>
+
+    <aside class="panel result" aria-live="polite">
+      <div id="empty">
+        <h2>No estimate yet</h2>
+        <p>Fill in the form and select <strong>Estimate churn risk</strong>.</p>
+      </div>
+      <div id="output" hidden>
+        <h2 id="verdict"></h2>
+        <div class="meter" role="img" aria-label="Churn probability">
+          <div id="bar" class="bar"></div>
+          <div id="mark" class="mark" title="Decision threshold"></div>
+        </div>
+        <p class="pct"><span id="pct"></span> estimated chance of churn</p>
+        <p class="fine" id="detail"></p>
+      </div>
+      <p id="error" class="error" role="alert" hidden></p>
+      <p class="fine disclaimer">Trained on the public Kaggle Telco dataset (historical data). A correlation in past data does not explain why a particular person leaves.</p>
+    </aside>
+  </main>
+
+  <section class="panel history">
+    <h2>Recent estimates</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Time (UTC)</th><th>Contract</th><th>Tenure</th><th>Monthly</th><th>Result</th><th>Probability</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p id="no-history" class="fine">Nothing saved yet.</p>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
