@@ -62,7 +62,26 @@ pip install -r requirements.txt
 
 ## Results
 
-## Results
+Measured on a held-out 20% test set (1,409 customers, stratified split, random_state=42).
+
+| Metric | Value |
+|---|---|
+| Selected model | Logistic Regression |
+| Test ROC-AUC | 0.841 |
+| Test PR-AUC | 0.633 |
+| Churn recall | 0.783 |
+| Churn precision | 0.504 |
+| Churn F1 | 0.614 |
+| Accuracy | 0.738 |
+
+Cross-validation ROC-AUC on the training set: Logistic Regression 0.846, Random Forest 0.837, baseline 0.500.
+The model was selected using cross-validation on the training set only. The test set was used once.
+
+Confusion matrix (threshold 0.50): 747 true negatives, 288 false positives, 81 false negatives, 293 true positives.
+
+Accuracy alone is misleading here: always predicting "No churn" would be right for about 73.5% of this test set (1,035 of 1,409 customers) and would catch no churners. That is why recall, precision and ROC-AUC are reported.
+
+![Confusion matrix](reports/figures/confusion_matrix.png)
 
 Measured on a held-out 20% test set (stratified split, random_state=42).
 
